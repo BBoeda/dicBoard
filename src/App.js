@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import BoardList from "./routes/BoardList";
 import Home from "./routes/Home";
 import React from "react";
+import { Helmet } from 'react-helmet';
 import BoardDetail from "./routes/BoardDetail";
 import BoardWrite from './routes/BoardWrite';
 import BoardUpdate from "./routes/BoardUpdate";
@@ -10,13 +11,18 @@ import './App.css';
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/board" element={<BoardList/>}/>
-            <Route path="/board/:idx" element={<BoardDetail/>}/>
-            <Route path="/write" element={<BoardWrite />} />
-            <Route path="/update/:idx" element={<BoardUpdate />} />
-        </Routes>
+        <div>
+            <Helmet>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"/>
+            </Helmet>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/board" element={<BoardList/>}/>
+                <Route path="/board/:idx" element={<BoardDetail/>}/>
+                <Route path="/write" element={<BoardWrite />} />
+                <Route path="/update/:idx" element={<BoardUpdate />} />
+            </Routes>
+        </div>
     );
 }
 

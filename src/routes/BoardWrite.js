@@ -7,11 +7,9 @@ const BoardWrite = () => {
     const navigate = useNavigate();
 
     const [board, setBoard] = useState({
-        idx: 0, keyword: '', syn1: '', syn2: '', syn3: '', syn4: '', confirm: '', code: '', createdBy: '', createdAt: ''
+        idx: 0, keyword: '', syn1: '', syn2: '', syn3: '', syn4: '', confirm: 'Y', code: 'CODE1', createdBy: '관리자', createdAt: ''
     });
 
-    const [tableCount, setTableCount] = useState(0);
-    
     const {keyword, syn1, syn2, syn3, syn4, confirm, code, createdBy, createdAt} = board; //비구조화 할당
 
     const onChange = (event) => {
@@ -20,6 +18,9 @@ const BoardWrite = () => {
             ...board, [name]: value,
         });
     };
+
+    const [tableCount, setTableCount] = useState(0);
+    const tables = [];
 
     const addTableToDiv = () => {
         if (tables.length >= 4) {
@@ -30,70 +31,79 @@ const BoardWrite = () => {
 
     };
 
-    const tables = [];
+
+
+
 
     for (let i = 0; i < tableCount; i++) {
         tables.push(<Table key={i}/>);
     }
 
+    const [tableDataList, setTableData] = useState({keyword: '', syn1:''});
+
+    const addtableDataToArray = () => {
+        let tableData = { id: 1, value: 'Example Value' };
+        setTableData([...tableDataList, tableData]);
+    };
+
     function Table() {
         return (<div className="div-table-board-write">
-                    <table className="table-board-write">
-                    <thead className="thead-board-write">
-                    <tr>
-                        <th>필드명</th>
-                        <th>필드값</th>
-                    </tr>
-                    </thead>
-                    <tbody className="tbody-board-write">
-                    <tr>
-                        <th>키워드</th>
-                        <td><input type="text" name="keyword" /></td>
-                    </tr>
-                    <tr>
-                        <th>유의어1</th>
-                        <td><input type="text" name="syn1"/></td>
-                    </tr>
-                    <tr>
-                        <th>유의어2</th>
-                        <td><input type="text" name="syn2"/></td>
-                    </tr>
-                    <tr>
-                        <th>유의어3</th>
-                        <td><input type="text" name="syn3"/></td>
-                    </tr>
-                    <tr>
-                        <th>유의어4</th>
-                        <td><input type="text" name="syn4"/></td>
-                    </tr>
-                    <tr>
-                        <th>코드</th>
-                        <td>
-                            <select name="code">
-                                <option value={"생활"}>생활</option>
-                                <option value={"교육"}>교육</option>
-                                <option value={"군사"}>군사</option>
-                                <option value={"금융"}>금융</option>
-                                <option value={"관공서"}>관공서</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>확인여부</th>
-                        <td>
-                            <select name="confirm">
-                                <option value={"Y"}>확인</option>
-                                <option value={"N"}>미확인</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>작성자</th>
-                        <td><input type="text" name="createdBy" value={createdBy}/></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>);
+            <table className="table-board-write">
+                <thead className="thead-board-write">
+                <tr>
+                    <th>필드명</th>
+                    <th>필드값</th>
+                </tr>
+                </thead>
+                <tbody className="tbody-board-write">
+                <tr>
+                    <th>키워드</th>
+                    <td><input type="text" name="keyword" value={keyword}/></td>
+                </tr>
+                <tr>
+                    <th>유의어1</th>
+                    <td><input type="text" name="syn1"/></td>
+                </tr>
+                <tr>
+                    <th>유의어2</th>
+                    <td><input type="text" name="syn2"/></td>
+                </tr>
+                <tr>
+                    <th>유의어3</th>
+                    <td><input type="text" name="syn3"/></td>
+                </tr>
+                <tr>
+                    <th>유의어4</th>
+                    <td><input type="text" name="syn4"/></td>
+                </tr>
+                <tr>
+                    <th>코드</th>
+                    <td>
+                        <select name="code">
+                            <option value={"생활"}>생활</option>
+                            <option value={"교육"}>교육</option>
+                            <option value={"군사"}>군사</option>
+                            <option value={"금융"}>금융</option>
+                            <option value={"관공서"}>관공서</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>확인여부</th>
+                    <td>
+                        <select name="confirm">
+                            <option value={"Y"}>확인</option>
+                            <option value={"N"}>미확인</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>작성자</th>
+                    <td><input type="text" name="createdBy" value={createdBy}/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>);
     }
 
     const saveBoard = async () => {
@@ -106,8 +116,6 @@ const BoardWrite = () => {
     const backToList = () => {
         navigate('/board');
     };
-
-
 
 
     return (<div className="div-all-board-write">

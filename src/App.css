@@ -1,205 +1,332 @@
+@font-face {
+    font-family: 'NotoSansKR';  /* 원하는 폰트 이름으로 변경하세요 */
+    src: local('NotoSansKR'), url('fonts/NotoSansKR-VariableFont_wght.ttf') format('truetype');  /* 폰트 파일 경로와 이름을 변경하세요 */
+}
+
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
+.board-link {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body {
+    background-color: #ffffff;
+    /*font-family: 'NotoSansKR';*/
+}
+
+
 table {
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
 }
 
 
 th, td {
-  border: 1px solid black; /* 모든 셀에 테두리 추가 */
-  padding: 5px;
-  text-align: left;
-  white-space: nowrap; /* 텍스트가 자동으로 줄 바꿈되지 않도록 설정 */
-  overflow: hidden; /* 넘치는 텍스트를 가림 */
-  text-overflow: ellipsis; /* 넘치는 텍스트에 "..."을 표시 */
+    /*border: 1px solid; !* 모든 셀에 테두리 추가 *!
+    padding: 5px;*/
+    white-space: nowrap; /* 텍스트가 자동으로 줄 바꿈되지 않도록 설정 */
+    overflow: hidden; /* 넘치는 텍스트를 가림 */
+    text-overflow: ellipsis; /* 넘치는 텍스트에 "..."을 표시 */
 }
 
-th {
-  background-color: #f2f2f2; /* 헤더 배경색 설정 */
-}
-
-.div-all-board-write {
+.div-all-board-list {
 
 }
 
-.div-board-write {
-  display: flex;
-  box-sizing: border-box; /* 테두리를 포함하여 크기 조정 */
+.div-board-list {
+    display: flex;
+    box-sizing: border-box; /* 테두리를 포함하여 크기 조정 */
 
 }
 
-.div-table-board-write{
-  border-left: 2px solid #FF8000; /* 각 열에 테두리 추가 */
-  border-top: 2px solid #FF8000; /* 각 열에 테두리 추가 */
-  border-bottom: 2px solid #FF8000; /* 각 열에 테두리 추가 */
-  border-right: 2px solid #ff7f50; /* 각 열에 테두리 추가 */
+.div-table-board-list {
+    box-sizing: border-box; /* 테두리를 포함하여 크기 조정 */
 
-  box-sizing: border-box; /* 테두리를 포함하여 크기 조정 */
-
-  margin-right: 5px;
-  width: 20%;
+    margin-right: 5px;
+    width: 100%;
 }
 
-.div-board-write-buttons{
-  flex: 1; /* 세로 공간을 동일하게 분배 */
-  box-sizing: border-box; /* 테두리를 포함하여 크기 조정 */
-}
-
-
-
-
-
-
-
-.table-board-write {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-}
-
-.thead-board-write th {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.tbody-board-write th,
-.tbody-board-write td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.tbody-board-write th {
-  background-color: #f9f9f9;
-}
-
-.tbody-board-write td input[type="text"],
-.tbody-board-write td select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 14px;
-  margin-top: 2px;
-}
-
-.tbody-board-write td select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-  background-repeat: no-repeat;
-  background-position-x: calc(100% - 10px);
-  background-position-y: center;
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.tbody-board-write td select::-ms-expand {
-  display: none;
-}
 .div-board-write-buttons {
-  text-align: center;
-  padding: 10px
-;
+    flex: 1; /* 세로 공간을 동일하게 분배 */
+    box-sizing: border-box; /* 테두리를 포함하여 크기 조정 */
 }
-.board-write-button {
-  background-color: #ff7f50; /* 주황색 */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-right: 10px;
+
+.table-board-list {
+    margin-top: 2px;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ffffff;
+    margin-bottom: 10px;
+}
+
+.thead-board-list {
+    /*  border-left: 1px solid #FF8000; !* 각 열에 테두리 추가 *!
+      border-top: 1px solid #FF8000; !* 각 열에 테두리 추가 *!
+      border-bottom: 1px solid #FF8000; !* 각 열에 테두리 추가 *!
+      border-right: 1px solid #ff7f50; !* 각 열에 테두리 추가 *!*/
+}
+
+.thead-board-list tr th {
+    font-size: 14px;
+    font-weight: bolder;
+    background-color: #f5d5ba;
+    border: 1px solid #FF8000;
+    padding: 2px;
+}
+
+.tbody-board-list th, td {
+    padding: 2px;
+}
+
+.tbody-board-list th {
+    background-color: #eaa673;
+}
+
+.tbody-board-list td {
+    background-color: #fdfdfd; /* 흰색 */
+    border: 1px solid #e87d4f;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.tbody-board-list td input[type="text"], .tbody-board-list td select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.tbody-board-list td select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /*background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');*/
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 10px);
+    background-position-y: center;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.tbody-board-list td select::-ms-expand {
+    display: none;
+}
+
+.div-board-list-buttons {
+    text-align: center;
+    padding: 10px;
+}
+
+.board-list-button {
+    background-color: #fd4b00; /* 주황색 */
+    color: white;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 3px;
+
+}
+
+.board-list-button.saveBorad {
+    background-color: #ff4802; /* 주황색 */
+    float: right;
+    margin-top: 10px;
+}
+
+.board-list-button.addRow {
+    background-color: #ff4802; /* 주황색 */
+    float: right;
+    margin-top: 10px;
+}
+
+.board-list-button.delRow {
+    background-color: #ff4802; /* 주황색 */
+    float: right;
+    margin-top: 10px;
+}
+
+.board-list-button-getDataInfoAPI {
+    background-color: #d56712; /* 주황색 */
+    font-size: 12px;
+    color: white;
+    padding: 2px 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+.board-list-button-dataDeleteBoard {
+    background-color: #f56910; /* 주황색 */
+    font-size: 12px;
+    color: white;
+    padding: 2px 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 2px;
 }
 
 .idx {
-  width: 5%;
+    width: 2%;
+    text-align: center;
 }
 
 .keyword {
-  width: 10%;
+    width: 10%;
+    text-align: center;
 }
 
 .syn1 {
-  width: 10%;
+    width: 35%;
 }
 
 .syn2 {
-  width: 10%;
+    width: 8%;
 }
 
 .syn3 {
-  width: 10%;
+    width: 8%;
 }
 
 .syn4 {
-  width: 10%;
+    width: 8%;
 }
 
 .code {
-  width: 5%;
+    width: 5%;
+    text-align: center;
 }
 
 .confirm {
-  width: 5%;
+    width: 3%;
+    text-align: center;
 }
 
 .createdBy {
-  width: 5%;
+    width: 5%;
+    text-align: center;
 }
 
 .createdAt {
-  width: 15%;
+    width: 8%;
+    text-align: center;
 }
 
-td input[type=text]
-{
-  width: 98%
+.option {
+    text-align: center;
+    width: 2%;
+}
+
+td input[type=text] {
+    width: 90%
+}
+
+.searchSelect {
+    padding: 2px 4px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #fd4b00;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+
 }
 
 .searchText {
-  width: 20%;
+    margin-left: 5px;
+    padding: 3px;
+    border: none;
+    border-bottom: 2px solid #fd4b00;
+    box-sizing: border-box;
+    width: 30%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* 페이징 CSS */
+.page_wrap {
+    text-align:center;
+    font-size:0;
+}
+.page_nation {
+    display:inline-block;
+}
+.page_nation .none {
+    display:none;
+}
+.page_nation button {
+    display:block;
+    margin:0 3px;
+    float:left;
+    border:1px solid #e6e6e6;
+    min-width:28px;
+    height:28px;
+    line-height:28px;
+    text-align:center;
+    background-color:#fff;
+    font-size:13px;
+    color: #000000;
+    text-decoration:none;
+}
+.page_nation .arrow {
+    border:1px solid #ccc;
+}
+.page_nation .pprev {
+    background:#f8f8f8 url('img/page_pprev.png') no-repeat center center;
+    margin-left:0;
+}
+.page_nation .prev {
+    background:#f8f8f8 url('img/page_prev.png') no-repeat center center;
+    margin-right:7px;
+}
+.page_nation .next {
+    background:#f8f8f8 url('img/page_next.png') no-repeat center center;
+    margin-left:7px;
+}
+.page_nation .nnext {
+    background:#f8f8f8 url('img/page_nnext.png') no-repeat center center;
+    margin-right:0;
 }
