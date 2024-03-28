@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className={"footer"}>
             <hr/>
-            푸터
+            {/*푸터*/}
         </footer>
     );
 };

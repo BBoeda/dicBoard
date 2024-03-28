@@ -183,29 +183,31 @@ th, td {
 }
 
 .idx {
-    width: 2%;
+    width: 5%;
     text-align: center;
 }
 
 .keyword {
     width: 10%;
     text-align: center;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .syn1 {
-    width: 35%;
+    width: 40%;
 }
 
 .syn2 {
-    width: 8%;
+    width: 6%;
 }
 
 .syn3 {
-    width: 8%;
+    width: 6%;
 }
 
 .syn4 {
-    width: 8%;
+    width: 6%;
 }
 
 .code {
@@ -230,7 +232,7 @@ th, td {
 
 .option {
     text-align: center;
-    width: 2%;
+    width: 3%;
 }
 
 td input[type=text] {
@@ -255,6 +257,85 @@ td input[type=text] {
     border-bottom: 2px solid #fd4b00;
     box-sizing: border-box;
     width: 30%;
+}
+.div-board-update {
+    margin-bottom: 30px;
+}
+.thead-board-update tr {
+    font-size: 14px;
+    font-weight: bolder;
+    border: 1px solid rgba(238, 193, 165, 0.92);
+    padding: 2px;
+
+}
+
+.thead-board-update th {
+    font-size: 14px;
+    font-weight: bolder;
+    background-color: #f5d5ba;
+    border: 1px solid #fd4b00;
+    padding: 2px;
+    /* 테이블 레이아웃을 고정하고 셀의 너비를 고정된 비율로 설정 */
+    table-layout: fixed;
+    width: 15%; /* 2의 비율 */
+    font-size: 14px;
+}
+
+.thead-board-update td {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+    background-color: #f5d5ba;
+    border: 1px solid #fd4b00;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.tbody-board-update th {
+    background-color: #ffffff;
+    border: 1px solid #fd4b00;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.tbody-board-update td {
+    background-color: #ffffff;
+    border: 1px solid #fd4b00;
+    padding: 2px;
+    font-size: 13px;
+}
+
+.board-list-button.updateBorad {
+    background-color: #ff4802; /* 주황색 */
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.board-list-button.updateCancle {
+    background-color: #ff4802; /* 주황색 */
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tbody-board-update td input[type="text"], .tbody-board-update td select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.tbody-board-update td select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 10px);
+    background-position-y: center;
+    padding-right: 10px;
+    cursor: pointer;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -329,4 +410,53 @@ td input[type=text] {
 .page_nation .nnext {
     background:#f8f8f8 url('img/page_nnext.png') no-repeat center center;
     margin-right:0;
+}
+
+.login-container {
+    width: 300px;
+    padding: 16px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+.login-h2 {
+    text-align: center;
+}
+
+.login-div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login-button {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f86a08;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition-duration: 0.4s;
+    box-shadow: 0 10px 30px 0 rgb(243, 185, 130);
+}
+
+.login-p {
+    font-size: 12px;
+    float: right;
+    margin-right: 15px;
 }

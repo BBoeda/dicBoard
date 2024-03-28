@@ -2,8 +2,14 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const BoardUpdate = () => {
+    debugger;
+    const location = useLocation();
+    const userInfo = {...location.state};
+    const username = userInfo.username;
+
     const navigate = useNavigate();
     const {idx} = useParams(); // /update/:idx와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.
     const [board, setBoard] = useState({
@@ -28,37 +34,45 @@ const BoardUpdate = () => {
         await axios.patch(`/board`, board).then((res) => {
             alert('수정되었습니다.');
             //navigate('/board/' + idx);
-            navigate('/board');
+            navigate('/board',{
+                state: {
+                    username: username
+                },
+            });
         });
     };
 
     const backToDetail = () => {
         //navigate('/board/' + idx);
-        navigate('/board');
+        navigate('/board',{
+            state: {
+                username: username
+            },
+        });
     };
 
     useEffect(() => {
         getBoard();
     }, []);
 
-    return (<div>
+    return (<div className={"div-board-update"}>
 
         <div>
             <table>
-                <thead>
+                <thead className={"thead-board-update"}>
                 <tr>
                     <th>필드명</th>
-                    <th>필드값</th>
+                    <td>필드값</td>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody className={"tbody-board-update"}>
                 <tr>
                     <th>번호</th>
-                    <th>{idx}</th>
+                    <td>{idx}</td>
                 </tr>
                 <tr>
                     <th>키워드</th>
-                    <th><input type="text" name="keyword" value={keyword} onChange={onChange}/></th>
+                    <td><input type="text" name="keyword" value={keyword} onChange={onChange}/></td>
                 </tr>
                 <tr>
                     <th>SYN1</th>
@@ -80,11 +94,11 @@ const BoardUpdate = () => {
                     <th>코드</th>
                     <td>
                         <select name="code" value={code} onChange={onChange}>
-                            <option value={"생활"}>생활</option>
-                            <option value={"교육"}>교육</option>
-                            <option value={"군사"}>군사</option>
-                            <option value={"금융"}>금융</option>
-                            <option value={"관공서"}>관공서</option>
+                            <option value={"CODE1"}>CODE1</option>
+                            <option value={"CODE2"}>CODE2</option>
+                            <option value={"CODE3"}>CODE3</option>
+                            <option value={"CODE4"}>CODE4</option>
+                            <option value={"CODE5"}>CODE5</option>
                         </select>
                     </td>
                 </tr>
@@ -104,11 +118,12 @@ const BoardUpdate = () => {
                 </tbody>
             </table>
         </div>
-        <br/>
+
         <div>
-        <button onClick={updateBoard}>수정</button>
-            <button onClick={backToDetail}>취소</button>
+            <button className={"board-list-button updateCancle"} onClick={backToDetail}>취소</button>
+            <button className={"board-list-button updateBorad"} onClick={updateBoard}>수정</button>
         </div>
+        <br/>
     </div>);
 };
 
